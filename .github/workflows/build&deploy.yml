@@ -29,7 +29,7 @@ jobs:
             - name: prepare EBS package
               run: |
                 mkdir -p target/eb-deployment
-                cp target/*.jar target/eb-deployment/
+                cp target/*.jar eb-deployment/
                 echo "web: java -jar *.jar" > eb-deployment/Procfile
                 ls -la eb-deployment
             - name: upload artifact
@@ -37,4 +37,3 @@ jobs:
               with:
                 name: streamflix-deployment
                 path: eb-deployment
-                
