@@ -28,7 +28,7 @@ jobs:
                 echo "jar file exists"
             - name: prepare EBS package
               run: |
-                mkdir -p target/eb-deployment
+                mkdir -p eb-deployment
                 cp target/*.jar eb-deployment/
                 echo "web: java -jar *.jar" > eb-deployment/Procfile
                 ls -la eb-deployment
