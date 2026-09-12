@@ -8,7 +8,7 @@ data "aws_iam_policy_document" "ec2_assume_role" {
     actions = ["sts:AssumeRole"]
     principals {
       type        = "Service"
-      identifiers = ["elasticbeanstalk.amazonaws.com"]
+      identifiers = ["ec2.amazonaws.com"]
     }
   }
 }
@@ -33,7 +33,7 @@ data "aws_iam_policy_document" "beanstalk_assume_role" {
     actions = ["sts:AssumeRole"]
     principals {
       type        = "Service"
-      identifiers = ["ec2.amazonaws.com"]
+      identifiers = ["elasticbeanstalk.amazonaws.com"]
     }
   }
 }
@@ -64,9 +64,9 @@ resource "aws_elastic_beanstalk_environment" "streamflix" {
   solution_stack_name = data.aws_elastic_beanstalk_solution_stack.java21.name
 
     setting {
-        namespace = "aws:elastcicbeanstalk:environment"
+        namespace = "aws:elasticbeanstalk:environment"
         name      = "EnvironmentType"
-        value     = "singleInstance"
+        value     = "SingleInstance"
     }
 
     setting {
