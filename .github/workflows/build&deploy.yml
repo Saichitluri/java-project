@@ -78,7 +78,7 @@ jobs:
             - name: Verify Deployment files
               run: |
                   echo "verifying deployment files"
-                  la -la deployment
+                  ls -la deployment
                   echo "verify proc file content"
                   cat deployment/Procfile
                   test -f deployment/Procfile && echo "Procfile exists"
@@ -103,6 +103,6 @@ jobs:
               with:
                 application-name: streamflix
                 environment-name: streamflix-dev
-                version-lable: streanflix-${{ github.run_number}}
+                version-label: streamflix-${{ github.run_number}}
                 aws-region: us-east-1
                 deployment-package-path: streamflixdeployment.zip
