@@ -77,6 +77,12 @@ resource "aws_elastic_beanstalk_environment" "streamflix" {
 
     setting {
         namespace = "aws:autoscaling:launchconfiguration"
+        name      = "IamInstanceProfile"
+        value     = aws_iam_instance_profile.ec2_instance_profile.name
+}
+
+    setting {
+        namespace = "aws:autoscaling:launchconfiguration"
         name      = "InstanceType"
         value     = var.instance_type
     }
